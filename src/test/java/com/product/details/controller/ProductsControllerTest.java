@@ -9,10 +9,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.product.details.service.ProductClient;
+import com.product.details.service.ProductService;
 
 @WebMvcTest(ProductsController.class)
 @AutoConfigureMockMvc
@@ -22,18 +20,12 @@ public class ProductsControllerTest {
 	private MockMvc mvc;
 	
 	@MockBean
-	private ProductClient productClient;
-	
-	@MockBean
-	private ObjectMapper objectMapper;
-	
-	@MockBean
-	private WebClient webClient;
+	private ProductService productService;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		productClient = new ProductClient(WebClient.builder(), objectMapper);
+		 
 	}
 	
 	@Test

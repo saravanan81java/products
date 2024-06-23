@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class ProductClient {
 
 	private final ObjectMapper objectMapper;
-	private WebClient webClient;
+	private final WebClient webClient;
 	
 	@Autowired
 	public ProductClient(WebClient.Builder webClientBuilder, ObjectMapper objectMapper) {

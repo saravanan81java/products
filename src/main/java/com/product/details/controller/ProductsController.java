@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.product.details.dto.ProductResponse;
-import com.product.details.service.ProductClient;
+import com.product.details.service.ProductService;
 
 import reactor.core.publisher.Mono;
 
@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 public class ProductsController {
 
 	@Autowired
-	private ProductClient productClient;
+	private ProductService productService;
 	
 	
 	@GetMapping("/ping")
@@ -26,6 +26,6 @@ public class ProductsController {
 	
 	@GetMapping("/products")
 	public Mono<List<ProductResponse>> getProducts(@RequestParam(required = false) String type){
-		return productClient.getProducts(type);
+		return productService.getProducts(type);
 	}
 }
